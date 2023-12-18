@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "noEmit": true,
+    "esModuleInterop": true,
+    "jsx": "react",
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "strict": true
+  },
+  "include": ["./src"]
+}
