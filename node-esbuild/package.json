@@ -31,8 +31,8 @@
   },
   "prettier": {
     "arrowParens": "always",
+    "bracketSameLine": false,
     "bracketSpacing": true,
-    "jsxBracketSameLine": false,
     "printWidth": 120,
     "quoteProps": "as-needed",
     "semi": true,
