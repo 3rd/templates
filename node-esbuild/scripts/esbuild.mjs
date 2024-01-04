@@ -2,6 +2,15 @@ import * as esbuild from "esbuild";
 import { dev } from "./dev.mjs";
 import { build } from "./build.mjs";
 
+// ESM - the gift that keeps on giving - https://github.com/evanw/esbuild/issues/1921
+const banner = `
+  import { fileURLToPath } from 'url';
+  import { createRequire as topLevelCreateRequire } from 'module';
+  const require = topLevelCreateRequire(import.meta.url);
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = require("path").dirname(__filename);
+`;
+
 /** @type Record<string,esbuild.BuildOptions>*/
 const config = {
   base: {
@@ -14,16 +23,6 @@ const config = {
     define: {
       "process.env.NODE_ENV": '"production"',
     },
-    banner: {
-      // ESM - the gift that keeps on giving - https://github.com/evanw/esbuild/issues/1921
-      js: `
-        import { fileURLToPath } from 'url';
-        import { createRequire as topLevelCreateRequire } from 'module';
-        const require = topLevelCreateRequire(import.meta.url);
-        const __filename = fileURLToPath(import.meta.url);
-        const __dirname = path.dirname(__filename);
-        `,
-    },
     // packages: "external",
   },
   dev: {
@@ -33,10 +32,12 @@ const config = {
     define: {
       "process.env.NODE_ENV": '"development"',
     },
+    banner: { js: banner },
   },
   build: {
     metafile: true,
     minify: true,
+    banner: { js: banner },
   },
 };
 
