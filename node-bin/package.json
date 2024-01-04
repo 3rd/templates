@@ -10,6 +10,7 @@
   },
   "license": "",
   "type": "module",
+  "main": "./dist/main.js",
   "files": [
     "dist"
   ],
