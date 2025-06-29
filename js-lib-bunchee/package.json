@@ -22,12 +22,12 @@
     "tsc": "tsc"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.11",
-    "@types/node": "^20.10.5",
-    "@vitest/coverage-v8": "^1.1.0",
-    "@vitest/ui": "^1.1.0",
-    "bunchee": "^4.2.2",
-    "typescript": "^5.3.3",
-    "vitest": "^1.1.0"
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.0.7",
+    "@vitest/coverage-v8": "^3.2.4",
+    "@vitest/ui": "^3.2.4",
+    "bunchee": "^6.5.4",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
   }
 }

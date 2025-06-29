@@ -1,0 +1,50 @@
+{
+  "name": "node-bin-esbuild",
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">= 20.10.0"
+  },
+  "main": "dist/main.mjs",
+  "files": [
+    "dist",
+    "bin"
+  ],
+  "bin": {
+    "app": "./bin/app.mjs"
+  },
+  "scripts": {
+    "dev": "node ./scripts/esbuild.mjs dev",
+    "build": "tsc && node ./scripts/esbuild.mjs build",
+    "start": "node ./dist/main.js",
+    "test": "vitest",
+    "test:ci": "vitest run",
+    "coverage": "vitest run --coverage",
+    "prepare": "husky install",
+    "prepublishOnly": "pnpm run build"
+  },
+  "lint-staged": {
+    "*.{json,js,ts,jsx,tsx,html}": "prettier --ignore-unknown --write"
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "bracketSameLine": false,
+    "bracketSpacing": true,
+    "printWidth": 120,
+    "quoteProps": "as-needed",
+    "semi": true,
+    "singleQuote": false,
+    "tabWidth": 2,
+    "trailingComma": "es5",
+    "useTabs": false
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.4",
+    "esbuild": "^0.19.9",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3",
+    "vitest": "^1.0.4"
+  }
+}

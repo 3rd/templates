@@ -1,0 +1,19 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "private": true,
+  "module": "main.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "mprocs 'bun --watch main.ts' 'cd packages/ui; bun run dev'"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

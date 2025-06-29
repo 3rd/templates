@@ -1,0 +1,45 @@
+{
+  "name": "next-trpc",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.1.11",
+    "@tanstack/react-query": "^5.81.5",
+    "@tanstack/react-query-devtools": "^5.81.5",
+    "@trpc/client": "11.4.3",
+    "@trpc/next": "11.4.3",
+    "@trpc/react-query": "11.4.3",
+    "@trpc/server": "11.4.3",
+    "next": "15.3.4",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "superjson": "^2.2.2",
+    "zod": "^3.25.67"
+  },
+  "devDependencies": {
+    "@storybook/nextjs": "^9.0.14",
+    "@storybook/react": "^9.0.14",
+    "@types/node": "^24.0.7",
+    "@types/react": "19.1.8",
+    "@types/react-dom": "19.1.6",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "storybook": "^9.0.14",
+    "tailwindcss": "^4.1.11",
+    "typescript": "^5.8.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "19.1.8",
+      "@types/react-dom": "19.1.6"
+    }
+  }
+}

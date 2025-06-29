@@ -1,3 +1,1 @@
-export const example = () => {
-  console.log("example");
-};
+export * from "./modules/example";

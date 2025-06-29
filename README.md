@@ -1,11 +1,6 @@
-# Templates for projects & sandboxes
+# Templates
 
-**TypeScript**:
-
-- [node-esbuild](./node-esbuild) - Node.js base
-- [vite-react](./vite-react) - Vite, React, Tailwind, Vitest, Storybook
-- [vite-vanilla](./vite-vanilla) - Vite, Tailwind, Vitest
-- [farm-react](./farm-react) - Farm, React, Tailwind, Vitest
+Sketchy templates for projects & sandboxes
 
 ### Scripts
 
