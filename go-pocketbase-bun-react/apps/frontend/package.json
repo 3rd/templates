@@ -1,0 +1,41 @@
+{
+  "name": "@my/frontend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "typecheck": "tsc --noEmit --project tsconfig.app.json",
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "gen": "pocketbase-typegen --db ../backend/pb_data/data.db --out src/api/pocketbase/generated.ts"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.8",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.15.0",
+    "jwt-decode": "^4.0.0",
+    "lucide-react": "^0.511.0",
+    "pocketbase": "^0.26.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-hook-form": "^7.62.0",
+    "react-router": "^7.6.1",
+    "swr": "^2.3.3",
+    "tailwind-merge": "^3.3.0",
+    "tailwindcss": "^4.1.8",
+    "zod": "^4.0.17"
+  },
+  "devDependencies": {
+    "@storybook/react-vite": "^9.0.4",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "@vitejs/plugin-react": "^4.4.1",
+    "globals": "^16.0.0",
+    "pocketbase-typegen": "^1.3.1",
+    "storybook": "^9.0.4",
+    "typescript": "~5.8.3",
+    "vite": "^6.3.5"
+  }
+}
