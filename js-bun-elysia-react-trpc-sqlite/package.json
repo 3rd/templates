@@ -5,13 +5,14 @@
   "module": "main.ts",
   "type": "module",
   "scripts": {
-    "dev": "mprocs 'bun --watch main.ts' 'cd packages/ui; bun run dev'"
+    "dev": "concurrently \"bun --watch main.ts\" \"cd packages/ui; bun run dev\""
   },
   "workspaces": [
     "packages/*"
   ],
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "concurrently": "^9.2.0"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
