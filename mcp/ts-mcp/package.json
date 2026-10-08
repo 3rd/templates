@@ -1,0 +1,50 @@
+{
+  "name": "ts-mcp",
+  "version": "0.0.0",
+  "description": "TypeScript MCP server template.",
+  "private": true,
+  "license": "UNLICENSED",
+  "type": "module",
+  "imports": {
+    "#mcp/client/stdio": "@modelcontextprotocol/sdk/client/stdio.js",
+    "#mcp/in-memory": "@modelcontextprotocol/sdk/inMemory.js",
+    "#mcp/server": "@modelcontextprotocol/sdk/server/mcp.js",
+    "#mcp/server/stdio": "@modelcontextprotocol/sdk/server/stdio.js",
+    "#mcp/types": "@modelcontextprotocol/sdk/types.js"
+  },
+  "main": "./dist/index.js",
+  "bin": {
+    "mcp-server": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=22",
+    "bun": ">=1.1.0"
+  },
+  "scripts": {
+    "dev": "bun --watch src/index.ts",
+    "start": "bun src/index.ts",
+    "start:node": "node dist/index.js",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit",
+    "clean": "node scripts/clean.mjs",
+    "build": "bun run clean && bun build src/index.ts --target node --format esm --outfile dist/index.js && node scripts/make-executable.mjs",
+    "smoke:source": "node scripts/smoke.mjs bun src/index.ts",
+    "smoke": "node scripts/smoke.mjs node dist/index.js",
+    "smoke:bin": "node scripts/smoke-bin.mjs",
+    "prepack": "bun run build",
+    "verify": "bun run test && bun run typecheck && bun run smoke:source && bun run build && bun run smoke && bun run smoke:bin"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.3.14",
+    "@types/node": "^22.20.0",
+    "typescript": "^6.0.3"
+  }
+}

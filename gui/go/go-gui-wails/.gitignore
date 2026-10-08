@@ -1,0 +1,12 @@
+/bin/
+/build/
+coverage.out
+result
+result-*
+
+frontend/dist/*
+!frontend/dist/.gitkeep
+frontend/node_modules
+frontend/.vite
+frontend/package.json.md5
+frontend/wailsjs/runtime/

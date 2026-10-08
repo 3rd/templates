@@ -1,0 +1,21 @@
+{
+  "name": "ts-gui-slint",
+  "version": "0.0.0",
+  "description": "Slint desktop application template.",
+  "private": true,
+  "license": "UNLICENSED",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch-path=src --watch-path=ui src/main.ts",
+    "build": "node src/compile-ui.ts"
+  },
+  "dependencies": {
+    "slint-ui": "1.18.1"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4.0",
+    "@types/node": "^24.13.3",
+    "prettier": "^3.9.6",
+    "typescript": "^7.0.2"
+  }
+}

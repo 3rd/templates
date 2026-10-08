@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json",
+  "runtime.version": "Lua 5.1",
+  "workspace.checkThirdParty": false,
+  "workspace.ignoreDir": [
+    ".deps"
+  ],
+  "workspace.library": [
+    "${env:VIMRUNTIME}/lua/vim"
+  ],
+  "diagnostics.globals": [
+    "MiniTest"
+  ],
+  "diagnostics.libraryFiles": "Disable"
+}

@@ -1,0 +1,223 @@
+import { Button, CheckBox, HorizontalBox, LineEdit, Palette, TabWidget, VerticalBox } from "std-widgets.slint";
+
+export component AppWindow inherits Window {
+    pure callback count-characters(text: string) -> int;
+
+    in-out property <int> count;
+    in-out property <string> note;
+    in-out property <bool> notifications: true;
+    in-out property <string> display-name: "ts-gui-slint";
+    property <string> status-message;
+
+    title: "ts-gui-slint";
+    preferred-width: 640px;
+    preferred-height: 440px;
+
+    pure function status-text() -> string {
+        if (root.status-message != "") {
+            return root.status-message;
+        }
+        if (tabs.current-index == 1) {
+            return "Notes · \{root.count-characters(root.note)} characters";
+        }
+        if (tabs.current-index == 2) {
+            return "Settings · Notifications \{root.notifications ? "on" : "off"}";
+        }
+        return "Home · Count \{root.count}";
+    }
+
+    VerticalLayout {
+        Rectangle {
+            background: Palette.alternate-background;
+
+            HorizontalBox {
+                VerticalLayout {
+                    alignment: center;
+
+                    Text {
+                        text: "ts-gui-slint";
+                        font-size: 18px;
+                        font-weight: 700;
+                    }
+
+                    Text {
+                        text: "Starter workspace";
+                        color: Palette.alternate-foreground;
+                    }
+                }
+
+                Rectangle {
+                    horizontal-stretch: 1;
+                }
+
+                VerticalLayout {
+                    alignment: center;
+
+                    Rectangle {
+                        border-color: Palette.border;
+                        border-width: 1px;
+                        border-radius: 4px;
+
+                        HorizontalLayout {
+                            padding-left: 8px;
+                            padding-right: 8px;
+                            padding-top: 2px;
+                            padding-bottom: 2px;
+
+                            Text {
+                                text: "starter";
+                                font-size: 11px;
+                                color: Palette.alternate-foreground;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        tabs := TabWidget {
+            vertical-stretch: 1;
+
+            changed current-index => {
+                root.status-message = "";
+            }
+
+            Tab {
+                title: "Home";
+
+                VerticalBox {
+                    alignment: start;
+
+                    Text {
+                        text: "Home";
+                        font-size: 16px;
+                        font-weight: 600;
+                    }
+
+                    Text {
+                        text: "A desktop shell with tabs, a content pane, and a few working controls.";
+                        wrap: word-wrap;
+                    }
+
+                    Text {
+                        text: "Count: \{root.count}";
+                    }
+
+                    HorizontalLayout {
+                        alignment: start;
+                        spacing: 8px;
+
+                        Button {
+                            text: "Increment";
+                            clicked => {
+                                root.count += 1;
+                            }
+                        }
+
+                        Button {
+                            text: "Reset";
+                            clicked => {
+                                root.count = 0;
+                            }
+                        }
+                    }
+                }
+            }
+
+            Tab {
+                title: "Notes";
+
+                VerticalBox {
+                    alignment: start;
+
+                    Text {
+                        text: "Notes";
+                        font-size: 16px;
+                        font-weight: 600;
+                    }
+
+                    Text {
+                        text: "Note";
+                    }
+
+                    LineEdit {
+                        accessible-label: "Note";
+                        placeholder-text: "Write a note";
+                        text <=> root.note;
+                    }
+
+                    Text {
+                        text: root.note == "" ? "Preview: (empty)" : "Preview: \{root.note}";
+                    }
+
+                    HorizontalLayout {
+                        alignment: start;
+
+                        Button {
+                            text: "Clear";
+                            clicked => {
+                                root.note = "";
+                            }
+                        }
+                    }
+                }
+            }
+
+            Tab {
+                title: "Settings";
+
+                VerticalBox {
+                    alignment: start;
+
+                    Text {
+                        text: "Settings";
+                        font-size: 16px;
+                        font-weight: 600;
+                    }
+
+                    CheckBox {
+                        text: "Notifications";
+                        checked <=> root.notifications;
+                        toggled => {
+                            root.status-message = "";
+                        }
+                    }
+
+                    Text {
+                        text: "Display name";
+                    }
+
+                    LineEdit {
+                        accessible-label: "Display name";
+                        text <=> root.display-name;
+                        edited => {
+                            root.status-message = "";
+                        }
+                    }
+
+                    HorizontalLayout {
+                        alignment: start;
+
+                        Button {
+                            text: "Apply";
+                            clicked => {
+                                root.status-message = "Settings · Saved as \{root.display-name}";
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        Rectangle {
+            background: Palette.alternate-background;
+
+            HorizontalBox {
+                Text {
+                    text: root.status-text();
+                    color: Palette.alternate-foreground;
+                }
+            }
+        }
+    }
+}

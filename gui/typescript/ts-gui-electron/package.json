@@ -1,0 +1,24 @@
+{
+  "name": "ts-gui-electron",
+  "version": "0.0.0",
+  "description": "Electron desktop application template.",
+  "private": true,
+  "license": "UNLICENSED",
+  "main": "./out/main/index.js",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4.0",
+    "@types/node": "^24.13.3",
+    "electron": "44.0.0",
+    "electron-vite": "^5.0.0",
+    "prettier": "^3.9.6",
+    "typescript": "^7.0.2",
+    "vite": "^7.3.6"
+  }
+}

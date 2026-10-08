@@ -1,0 +1,5 @@
+node_modules
+dist
+.env
+pocketbase/pb_data
+pocketbase/pb_migrations/*.js

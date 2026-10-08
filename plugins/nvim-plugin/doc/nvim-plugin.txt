@@ -1,0 +1,73 @@
+*nvim-plugin.txt*                A lean example Neovim plugin.
+
+==============================================================================
+CONTENTS                                                     *nvim-plugin*
+
+1. Requirements............................|nvim-plugin-requirements|
+2. Setup...................................|nvim-plugin-setup|
+3. Lua API.................................|nvim-plugin-api|
+4. Commands................................|nvim-plugin-commands|
+5. Health..................................|nvim-plugin-health|
+
+==============================================================================
+1. Requirements                                    *nvim-plugin-requirements*
+
+nvim-plugin requires Neovim 0.11 or newer.
+
+==============================================================================
+2. Setup                                                  *nvim-plugin-setup*
+
+Defaults work without setup. Call setup() only to override them: >lua
+
+    require("nvim-plugin").setup({
+      greeting = "Welcome",
+    })
+<
+
+                                                   *nvim-plugin.setup()*
+setup({options})
+
+    Configure nvim-plugin. Each call starts from the defaults, so omitted
+    options do not retain values from an earlier call.
+
+    Parameters: ~
+      {options}  (`NvimPluginOptions?`)
+        greeting  (`string?`) Text before the recipient. Default: "Hello".
+
+    Unknown options and invalid values raise an error.
+
+==============================================================================
+3. Lua API                                                *nvim-plugin-api*
+
+                                                   *nvim-plugin.greet()*
+greet({name})
+
+    Build a greeting without changing editor state.
+
+    Parameters: ~
+      {name}  (`string?`) Recipient. Default: "Neovim".
+
+    Return: ~
+      (`string`) The configured greeting, recipient, and punctuation.
+
+==============================================================================
+4. Commands                                          *nvim-plugin-commands*
+
+                                                    *:NvimPluginGreet*
+:NvimPluginGreet [name]
+
+    Echo the greeting for [name]. Without [name], greet "Neovim".
+
+    The command is registered at startup, but the implementation stays
+    unloaded until the command runs.
+
+==============================================================================
+5. Health                                              *nvim-plugin-health*
+
+Run this command to check that nvim-plugin loads on the current Neovim: >vim
+
+    :checkhealth nvim-plugin
+<
+
+==============================================================================
+vim:tw=78:ts=8:sw=2:sts=2:et:ft=help:norl:

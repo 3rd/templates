@@ -1,0 +1,7 @@
+[package]
+name = "rs-gui-relm4"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+relm4 = "0.11.0"

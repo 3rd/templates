@@ -1,0 +1,10 @@
+:NvimPluginGreet	nvim-plugin.txt	/*:NvimPluginGreet*
+nvim-plugin	nvim-plugin.txt	/*nvim-plugin*
+nvim-plugin-api	nvim-plugin.txt	/*nvim-plugin-api*
+nvim-plugin-commands	nvim-plugin.txt	/*nvim-plugin-commands*
+nvim-plugin-health	nvim-plugin.txt	/*nvim-plugin-health*
+nvim-plugin-requirements	nvim-plugin.txt	/*nvim-plugin-requirements*
+nvim-plugin-setup	nvim-plugin.txt	/*nvim-plugin-setup*
+nvim-plugin.greet()	nvim-plugin.txt	/*nvim-plugin.greet()*
+nvim-plugin.setup()	nvim-plugin.txt	/*nvim-plugin.setup()*
+nvim-plugin.txt	nvim-plugin.txt	/*nvim-plugin.txt*
